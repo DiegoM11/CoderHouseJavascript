@@ -14,7 +14,7 @@ console.log(esJubilado(jubilado));
 let banco = prompt('Ingrese su banco: ');
 
 function descuentoBanco(banco){
-    if(banco.toLowerCase() == 'santander'){
+    if(banco.toLowerCase() == 'santander' && esJubilado(jubilado) == true){
         return true;
     }
     else{
