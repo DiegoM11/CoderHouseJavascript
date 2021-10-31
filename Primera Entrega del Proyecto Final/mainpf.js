@@ -51,7 +51,7 @@ const guardar = window.localStorage;
 function htmlProductos() {
     productos.forEach((dato) => {
         const div = document.createElement('div');
-        div.classList.add('card', 'col-sm-5');
+        div.classList.add('card', 'col-sm-4');
         const body = document.createElement('div');
         body.classList.add('card-body');
         const title = document.createElement('h5');
@@ -88,15 +88,22 @@ function htmlCarrito() {
             return itemId === item ? total += 1 : total;
         }, 0);
         const htmlArt = document.createElement('li');
-        htmlArt.classList.add('list-group-item', 'text-right', 'mx-2');
-        htmlArt.textContent = `${cantidad} x ${articulo[0].nombre} : ${articulo[0].precio}$`;
+        htmlArt.classList.add('list-group-item', 'text-center', 'mx-6');
+        htmlArt.textContent = `${cantidad} x ${articulo[0].nombre} : $${articulo[0].precio}`;
+        const htmlButton = document.createElement('div');
+        const reducir = document.createElement('button');
+        reducir.classList.add('btn', 'btn-danger', 'mx-3');
+        reducir.textContent = '-';
+        reducir.dataset.item = item;
+        reducir.addEventListener('click', reducirCantidad);
         const borrar = document.createElement('button');
-        borrar.classList.add('btn', 'btn-danger', 'mx-5');
+        borrar.classList.add('btn', 'btn-danger', 'mx-3');
         borrar.textContent = 'X';
-        borrar.style.marginLeft = '1rem';
         borrar.dataset.item = item;
         borrar.addEventListener('click', borrarProd);
-        htmlArt.appendChild(borrar);
+        htmlButton.appendChild(borrar);
+        htmlButton.appendChild(reducir);
+        htmlArt.appendChild(htmlButton);
         elementoCarrito.appendChild(htmlArt);
     });
 }
@@ -145,11 +152,24 @@ function borrarProd(prod) {
     alert("¡Producto eliminado!");
 }
 
-function vaciarCarrito() {
-    var preguntavaciar = confirm("Desea vaciar el carrito?");
-    if (preguntavaciar == false){
+/*function reducirCantidad(item){
+    var consulta = confirm("Desea reducir la cantidad del producto?");
+    if (consulta == false){
         return
     }
+    carrito = carrito.reduce((total, itemId) => {
+        if(itemId === item){
+            total = total -= 1;
+        }
+    }, 0);
+    htmlCarrito();
+    calcularTotal();
+    guardarCarrito();
+}*/
+
+
+
+function vaciarCarrito() {
     carrito = [];
     htmlCarrito();
     calcularTotal();
@@ -164,8 +184,8 @@ function comprar(){
     if (result == false){
         return
     }
-    vaciarCarrito();
     alert("¡Compra exitosa!");
+    vaciarCarrito();
 }
 
 htmlBotonComprar.addEventListener('click', comprar);
