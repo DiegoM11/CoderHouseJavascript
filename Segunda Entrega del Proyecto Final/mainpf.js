@@ -5,21 +5,25 @@ let total = 0;
 const guardar = window.localStorage;
 
 const htmlProductos = () => {
-for (const producto of productos) {
-    $(`#items`).append(`
+    productos.forEach((dato) => {     
+    $(`#items`).prepend(`
         <div class="card col-sm-4">
             <div class="card-body">
-                <h5 class="card-title">${producto.nombre}</h5>
-                <img src="${producto.imagen}" class="img-fluid" alt="${producto.nombre}">
-                <p class="card-text"> $${producto.precio}</p>
-                <button class="btn btn-primary" id="btn-add">Agregar al carrito</button>
+                <h5 class="card-title">${dato.nombre}</h5>
+                <img src="${dato.imagen}" class="img-fluid" alt="${dato.nombre}">
+                <p class="card-text"> $${dato.precio}</p>
+                <input type="text" class="form-control" id="cantidad" placeholder="Cantidad">
+                <button class="btn btn-primary" id="btn-cant${dato.id}">+</button>
+                
             </div>
         </div>
     `);
-    $(`#btn-add`).attr('marcador', producto.id);
-    //$(`#btn-add`).click(agregarProducto()); //No puedo hacerlo funcionar con jQuery
+    $(`btn-cant${dato.id}`).on('click', aumentarCantidad());
+    });
 }
-}
+
+//<button class="btn btn-primary" id="btn-add" marcador="${dato.id}">Agregar</button>
+//$(`#btn-add`).click(agregarProducto());
 
 const renderCarrito = () => {
     $('#carrito').empty();
@@ -38,14 +42,14 @@ const renderCarrito = () => {
                 <span class="badge badge-primary">$${articulo[0].precio}</span>
             </li>
             <div>
-                <button class="btn btn-danger mx-3" id="btn-eliminar")">Eliminar</button>
+                <button class="btn btn-danger mx-3" id="btn-eliminar">Eliminar</button>
             </div>
             
         `);
         //const btnEliminar = document.getElementById('btn-eliminar');
         //btnEliminar.dataset.item = item;
-        $(`#total`).calcularTotal();
-        $(`#btn-eliminar`).click(borrarProd());
+        //$(`#btn-eliminar`).click(borrarProd());
+        //$(`#total`).textContent = calcularTotal();
     }
     );  
 }  
@@ -58,8 +62,9 @@ function calcularTotal() {
         });
         total = total + valor[0].precio;
     });
-    $(`#total`).textContent = total.toFixed(2);
+    $(`#total`).textContent = total;
 }
+
 
 function guardarCarrito () {
     guardar.setItem('carrito', JSON.stringify(carrito));
@@ -71,8 +76,20 @@ function cargarCarrito () {
     }
 }
 
-function agregarProducto(prod) {
-    carrito.push(prod.target.getAttribute('marcador'));
+function agregarProducto() {
+    $(`#btn-cant`).click(function(prod) {
+        carrito.push(prod.target.getAttribute('marcador'));
+        calcularTotal();
+        renderCarrito();
+        guardarCarrito();
+    });
+}
+
+function aumentarCantidad(prod) {
+    const id = prod.target.dataset.item;
+    carrito = carrito.map((carritoId) => {
+        return carritoId === id ? parseInt(carritoId) + 1 : carritoId;
+    });
     calcularTotal();
     renderCarrito();
     guardarCarrito();
@@ -96,7 +113,7 @@ function borrarProd(prod) {
 function vaciarCarrito() {
     carrito = [];
     renderCarrito();
-    calcularTotal();
+    //calcularTotal();
     localStorage.clear();
 
 }
@@ -116,10 +133,10 @@ $(`#comprar`).click(comprar);
 
 cargarCarrito();
 htmlProductos();
-calcularTotal();
+//calcularTotal();
 renderCarrito();
 
-const input = document.getElementById('input');
+/*const input = $(`#input`);
 
 function buscar(texto) {
     texto = input.value;
@@ -131,6 +148,6 @@ function buscar(texto) {
 }
 
 
-$(`#boton`).click(buscar());
+$(`#boton`).click(buscar());*/
 
 

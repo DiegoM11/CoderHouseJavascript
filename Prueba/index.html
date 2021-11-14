@@ -2,14 +2,13 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <title>PokeStore</title>
 </head>
 <body>
     <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
@@ -21,7 +20,7 @@
             <button class="btn my-2 my-sm-0" type="submit" id="boton">Buscar</button>
         </form>
         </div>
-    </nav>            
+        </nav>            
         <div class="container pt-5">
             <h1 class="text-center">PokeStore</h1>
         </div>
@@ -35,18 +34,42 @@
             <main id="items" class="col-sm-7 row"></main>
             <aside class="col-sm-5">
                 <h2 class="text-center">Carrito</h2>
+            <hr>
+            <div class="row">
+                <div class="col-6">
+                    <div class="shopping-cart-header">
+                        <h6>Producto</h6>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="shopping-cart-header">
+                        <h6 class="text-truncate">Precio</h6>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="shopping-cart-header">
+                        <h6>Cantidad</h6>
+                    </div>
+                </div>
+            </div>
                 <ul id="carrito" class="list-group"></ul>
                 <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-                <p class="text-left">Total: $<span id="total"></span></p>
-                <button id="vaciar" class="btn btn-danger">Vaciar</button>
-                <button id="comprar" class="btn btn-danger">Comprar</button>
+                <div class="row">
+                <div class="col-12">
+                    <div class="shopping-cart-total d-flex align-items-center">
+                        <p class="mb-0">Total: $<span id="total"></span></p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <button id="vaciar" class="btn btn-danger">Vaciar</button>
+                </div>
+                <div class="col-6">
+                    <button id="comprar" class="btn btn-success">Comprar</button>
+                </div>
             </aside>
         </div>
     </div>
-<script src="mainpf.js"  type="module"></script>
-<script type="text/javascript" src="productos.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="/Prueba/main.js"></script>
 </body>
 </html>
-
-
