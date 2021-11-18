@@ -10,19 +10,29 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/Clase 13/index.html">Inicio <span class="sr-only"></span></a>
-                </li>
-            </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar" id="input">
-            <button class="btn my-2 my-sm-0" type="submit" id="boton">Buscar</button>
-        </form>
-        </div>
-        </nav>            
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <a class="navbar-brand" href="#">PokeStore</a>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">Productos</a>
+                  </li>
+                </ul>
+                <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+        </div>            
         <div class="container pt-5">
             <h1 class="text-center">PokeStore</h1>
         </div>
@@ -58,7 +68,7 @@
                 <hr style="height:2px;border-width:0;color:gray;background-color:gray">
                 <div class="row">
                 <div class="col-12">
-                    <div class="shopping-cart-total d-flex align-items-center">
+                    <div class="d-flex align-items-center">
                         <p class="text-left">Total: $<span id="total"></span></p>
                     </div>
                 </div>
@@ -72,6 +82,6 @@
         </div>
     </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="/Clase 13/main.js"></script>
+<script src="/main.js"></script>
 </body>
 </html>
