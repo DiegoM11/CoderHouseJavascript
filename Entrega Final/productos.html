@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>PokeStore</title>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-light bg-danger fixed-top">
+      <div class="container">
+          <a href="index.html" class="navbar-brand">
+              <img src="img/logo.png" class="logo" alt="Logo">
+              <h5 class="logo-text">PokeStore</h5>
+          </a>
+          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbarCollapse">
+              <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                      <a class="nav-link fw-bold mb-4" href="index.html">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link fw-bold mb-4" href="productos.html">Productos</a>
+                  </li>
+              </ul>
+          </div>
+          <div class="navbar-nav">
+              <div class="d-flex justify-content-center mt-3">
+                  <a type="button" data-toggle="modal" data-target="#cartModal">
+                      <img class="img-fluid" src="img/carrito.png" alt="carrito"></i>
+                  </a>   
+              </div>
+          </div>
+      </div>
+  </nav>
+  </div>            
+  <div class="container pt-5">
+      <h1 class="text-center">PokeStore</h1>
+  </div>
+</header>
+    <div class="container pt-5">
+        <h2 class="text-left">Productos</h2>
+        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+    </div>
+    <div class="container pt-5">
+        <div class="row">
+            <main id="items" class="col-sm-7 row"></main>
+            <aside class="col-sm-5">
+                <h2 class="text-center">Carrito</h2>
+            <hr>
+            <div class="row">
+                <div class="col-6">
+                    <div class="shopping-cart-header">
+                        <h6>Producto</h6>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="shopping-cart-header">
+                        <h6 class="text-truncate">Precio</h6>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="shopping-cart-header">
+                        <h6>Cantidad</h6>
+                    </div>
+                </div>
+            </div>
+                <ul id="carrito" class="list-group"></ul>
+                <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                <div class="row">
+                <div class="col-12">
+                    <div class="d-flex align-items-center">
+                        <p class="text-left">Total: <span id="total"></span></p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <button id="vaciar" class="btn btn-danger">Vaciar</button>
+                </div>
+                <div class="col-6">
+                    <button id="comprar" class="btn btn-success">Comprar</button>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <footer>    
+      <section class="container-fluid bg-danger">
+          <div class="row">
+              <div class="col-lg-4 text-center text-lg-center mt-lg-0">
+                  <img class="img-fluid mb-3 mt-5" src="img/logo.png" alt="">
+                  <p class="mb-0 fst-italic">PokeStore</p>
+              </div>
+              <div class="col-lg-4 text-center text-lg-center mt-lg-0">
+                  <h4 class="fw-bold mb-3 mt-5">Contacto</h4>
+                  <h5 class="mt-2">Correo: PokeStore@gmail.com</h5>
+                  <h5 class="mt-2">Telefono: +52 1 55 55 55 55</h5>
+              </div>
+              <div class="row">
+                  <div class="col-12">
+                      <hr class="border-top border-light">
+                  </div>    
+                  <div class="col-12 text-center text-lg-left mb-1">
+                      <small class="text-white">Diego Massara © 2021 - Todos los derechos reservados</small>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </footer>  
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="carrito.js"></script>
+</body>
+</html>
